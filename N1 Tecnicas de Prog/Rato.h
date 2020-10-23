@@ -9,11 +9,9 @@
 #define Rato_h
 
 struct Rato{
-    char forma;
     int posX;
     int posY;
     bool temQueijo;
-    char deOndeVeio;
 };
 
 #endif /* Rato_h */

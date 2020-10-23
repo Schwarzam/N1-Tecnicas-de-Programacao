@@ -8,13 +8,19 @@
 #include <iostream>
 #include "Rato.h"
 #include "Mapa.h"
+#include "EncontrarCaminho.h"
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    Mapa novo_mapa;
+    Mapa mapa;
+    Rato rato;
     
-    novo_mapa = alterarMapa(novo_mapa, 0, 0, 'X');
+    rato.posX = 0;
+    rato.posY = 0;
+    alterarMapa(mapa, rato.posX, rato.posY, 'R');
     
-    mostrarMapa(novo_mapa);
+    EncontrarCaminho(mapa, rato);
+    
+    mostrarMapa(mapa);
     return 0;
 }

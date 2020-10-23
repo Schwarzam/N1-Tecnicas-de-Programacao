@@ -24,8 +24,7 @@ struct Mapa{
 };
 
 
-Mapa alterarMapa(Mapa mapa, int PosX, int PosY, const char Acao){
-    
+Mapa alterarMapa(Mapa &mapa, int PosX, int PosY, const char Acao){
     mapa.cenario[PosX][PosY] = Acao;
     return mapa;
 }
