@@ -11,7 +11,7 @@
 struct Rato{
     int posX;
     int posY;
-    bool temQueijo;
+    bool temQueijo = false;
 };
 
 #endif /* Rato_h */

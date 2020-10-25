@@ -17,7 +17,8 @@ int main(int argc, const char * argv[]) {
     
     rato.posX = 0;
     rato.posY = 0;
-    alterarMapa(mapa, rato.posX, rato.posY, 'R');
+    rato.temQueijo = false;
+    alterarMapa(mapa, rato.posX, rato.posY, "R");
     
     EncontrarCaminho(mapa, rato);
     

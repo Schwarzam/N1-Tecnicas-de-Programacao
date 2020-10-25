@@ -9,22 +9,43 @@
 #define Mapa_h
 using namespace std;
 
-const char PAREDE = 'P';
-const char VAZIO = '-';
-const char QUEIJO = 'Q';
+std::string PAREDE = "P";
+std::string VAZIO = "-";
+std::string QUEIJO = "Q";
 
 struct Mapa{
-    char cenario[5][5] = {
-        VAZIO, PAREDE,  VAZIO, VAZIO,  VAZIO,
+    std::string cenario[5][5] = {
+        VAZIO, PAREDE,  QUEIJO, VAZIO,  VAZIO,
         VAZIO, PAREDE,  PAREDE, VAZIO,  VAZIO,
-        VAZIO, VAZIO,   VAZIO,  PAREDE,  QUEIJO,
+        VAZIO, VAZIO,   VAZIO,  PAREDE,  VAZIO,
         VAZIO, VAZIO,   VAZIO,  VAZIO,  VAZIO,
         VAZIO, VAZIO,   VAZIO,  VAZIO,  VAZIO
     };
 };
 
+std::string PegarValorPosicao(Mapa &mapa, int PosX, int PosY){
+    std::string valor;
+    
+    
+    std::cout << PosX << endl;
+    std::cout << PosY << endl;
+    std::cout << valor << endl;
+    
+    if (PosX > 4 or PosX < 0 or PosY > 4 or PosY < 0)
+        valor = "";
+    else
+        valor = mapa.cenario[PosX][PosY];
+    
+    if (valor != "Q" and valor != "P" and valor != "-" and valor != "C")
+        valor = "";
+    
+    
+    
+    
+    return valor;
+}
 
-Mapa alterarMapa(Mapa &mapa, int PosX, int PosY, const char Acao){
+Mapa alterarMapa(Mapa &mapa, int PosX, int PosY, std::string Acao){
     mapa.cenario[PosX][PosY] = Acao;
     return mapa;
 }
