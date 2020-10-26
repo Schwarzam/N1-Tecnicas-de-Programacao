@@ -27,34 +27,44 @@ int EncontrarCaminho(Mapa &mapa, Rato &rato){
     ESQUERDA = PegarValorPosicao(mapa, rato.posX, rato.posY + 1);
     CIMA = PegarValorPosicao(mapa, rato.posX - 1, rato.posY);
     BAIXO = PegarValorPosicao(mapa, rato.posX + 1, rato.posY);
-    
-//    std::cout << rato.posX << endl;
-//    std::cout << rato.posY << endl;
-//    std::cout << BAIXO << endl;
-//    std::cout << DIREITA << endl;
-//    std::cout << ESQUERDA << endl;
-//    std::cout << CIMA << endl;
-    
-    mostrarMapa(mapa);
-    
-    if (BAIXO != "P" and BAIXO != "" and BAIXO != "C"){
-        alterarMapa(mapa, rato.posX, rato.posY, "C");
+
+    if (BAIXO != "P" and BAIXO != "" and BAIXO != ">"){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
         rato.posX = rato.posX + 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
-    }else if (DIREITA != "P" and DIREITA != "" and DIREITA != "C"){
-        alterarMapa(mapa, rato.posX, rato.posY, "C");
+    }else if (DIREITA != "P" and DIREITA != "" and DIREITA != ">"){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
         rato.posY = rato.posY - 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
-    }else if (ESQUERDA != "P" and ESQUERDA != "" and ESQUERDA != "C"){
-        alterarMapa(mapa, rato.posX, rato.posY, "C");
-        rato.posY = rato.posY + 1;
-        alterarMapa(mapa, rato.posX, rato.posY, "R");
-    }else if (CIMA != "P" and CIMA != "" and CIMA != "C"){
-        alterarMapa(mapa, rato.posX, rato.posY, "C");
+    }else if (CIMA != "P" and CIMA != "" and CIMA != ">"){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
         rato.posX = rato.posX - 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
+    }else if (ESQUERDA != "P" and ESQUERDA != "" and ESQUERDA != ">"){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        rato.posY = rato.posY + 1;
+        alterarMapa(mapa, rato.posX, rato.posY, "R");
+    }else if (ESQUERDA != "P" and ESQUERDA != ""){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        rato.posY = rato.posY + 1;
+        alterarMapa(mapa, rato.posX, rato.posY, "R");
+    }else if (CIMA != "P" and CIMA != ""){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        rato.posX = rato.posX - 1;
+        alterarMapa(mapa, rato.posX, rato.posY, "R");
+    }else if (DIREITA != "P" and DIREITA != ""){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        rato.posY = rato.posY - 1;
+        alterarMapa(mapa, rato.posX, rato.posY, "R");
+    }else if (BAIXO != "P" and BAIXO != ""){
+        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        rato.posX = rato.posX + 1;
+        alterarMapa(mapa, rato.posX, rato.posY, "R");
     }
-        
+    
+    if (CIMA == "Q" or BAIXO == "Q" or ESQUERDA == "Q" or DIREITA == "Q")
+        rato.temQueijo = true;
+    
     return EncontrarCaminho(mapa, rato);
 };
 
