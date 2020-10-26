@@ -9,8 +9,13 @@
 #define EncontrarCaminho_h
 #include "Mapa.h"
 #include "Rato.h"
-
+#include <chrono>
+#include <thread>
+#include <stdlib.h>
 int EncontrarCaminho(Mapa &mapa, Rato &rato){
+    using namespace std::this_thread; // sleep_for, sleep_until
+    using namespace std::chrono;
+    
     std::string d;
     
     std::string DIREITA;
@@ -45,19 +50,19 @@ int EncontrarCaminho(Mapa &mapa, Rato &rato){
         rato.posY = rato.posY + 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
     }else if (ESQUERDA != "P" and ESQUERDA != ""){
-        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        alterarMapa(mapa, rato.posX, rato.posY, "> ");
         rato.posY = rato.posY + 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
     }else if (CIMA != "P" and CIMA != ""){
-        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        alterarMapa(mapa, rato.posX, rato.posY, "> ");
         rato.posX = rato.posX - 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
     }else if (DIREITA != "P" and DIREITA != ""){
-        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        alterarMapa(mapa, rato.posX, rato.posY, "> ");
         rato.posY = rato.posY - 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
     }else if (BAIXO != "P" and BAIXO != ""){
-        alterarMapa(mapa, rato.posX, rato.posY, ">");
+        alterarMapa(mapa, rato.posX, rato.posY, "> ");
         rato.posX = rato.posX + 1;
         alterarMapa(mapa, rato.posX, rato.posY, "R");
     }
@@ -65,6 +70,9 @@ int EncontrarCaminho(Mapa &mapa, Rato &rato){
     if (CIMA == "Q" or BAIXO == "Q" or ESQUERDA == "Q" or DIREITA == "Q")
         rato.temQueijo = true;
     
+//    sleep_for(nanoseconds(10));
+//    sleep_until(system_clock::now() + seconds(1));
+//    mostrarMapa(mapa);
     return EncontrarCaminho(mapa, rato);
 };
 

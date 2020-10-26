@@ -16,10 +16,10 @@ std::string QUEIJO = "Q";
 struct Mapa{
     std::string cenario[5][5] = {
         VAZIO, VAZIO,  VAZIO, VAZIO,  VAZIO,
-        VAZIO, PAREDE,  VAZIO, PAREDE,  VAZIO,
+        VAZIO, PAREDE,  VAZIO, PAREDE,  QUEIJO,
         VAZIO, VAZIO,   VAZIO,  PAREDE,  PAREDE,
         VAZIO, VAZIO,   VAZIO,  VAZIO, VAZIO,
-        VAZIO, VAZIO,   VAZIO,  PAREDE,  QUEIJO,
+        VAZIO, VAZIO,   VAZIO,  PAREDE,  VAZIO,
     };
 };
 
