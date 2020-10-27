@@ -16,7 +16,7 @@ std::string ENTRADA = "E";
 
 struct Mapa{
     std::string cenario[5][5] = {
-        ENTRADA, PAREDE,  VAZIO, VAZIO,  VAZIO,
+        VAZIO, PAREDE,  VAZIO, VAZIO,  VAZIO,
         VAZIO, PAREDE,  VAZIO, PAREDE,  QUEIJO,
         VAZIO, PAREDE,   VAZIO,  VAZIO,  PAREDE,
         VAZIO, PAREDE,   VAZIO,  VAZIO, VAZIO,

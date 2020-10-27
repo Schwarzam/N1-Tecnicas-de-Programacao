@@ -24,7 +24,7 @@ std::string BAIXO;
 
 int EncontrarCaminho(Mapa &mapa, Rato &rato){
     if (rato.temQueijo == true){
-        std::cout << "O rato achou o queijo!" << endl;
+        std::cout << "O rato pegou o queijo!" << endl;
         return 0;
     }
     
@@ -76,7 +76,6 @@ int EncontrarCaminho(Mapa &mapa, Rato &rato){
 //    sleep_for(nanoseconds(10));
 //    sleep_until(system_clock::now() + seconds(1));
 //    mostrarMapa(mapa);
-    alterarMapa(mapa, 0, 0, "E");
     return EncontrarCaminho(mapa, rato);
 };
 
@@ -107,7 +106,6 @@ int EncontrarSaida(Mapa &mapa, Rato &rato){
     if (CIMA == "E" or BAIXO == "E" or ESQUERDA == "E" or DIREITA == "E"){
         std::cout << "O rato saiu!" << endl;
         alterarMapa(mapa, rato.posX, rato.posY, "<");
-        alterarMapa(mapa, 0, 0, "R");
         return 0;
     }
     

@@ -15,16 +15,19 @@ int main(int argc, const char * argv[]) {
     Mapa mapa;
     Rato rato;
     
+    int PosInicialX = 0;
+    int PosInicialY = 0;
+    
+    rato.posX = PosInicialX;
+    rato.posY = PosInicialY;
+    mapa.cenario[PosInicialX][PosInicialY] = ENTRADA;
+    
     cout << "Mapa inicial:" << endl;
     mostrarMapa(mapa);
     
     cout << endl;
-    rato.posX = 0;
-    rato.posY = 0;
-    rato.temQueijo = false;
-    alterarMapa(mapa, rato.posX, rato.posY, "R");
-    
     EncontrarCaminho(mapa, rato);
+    alterarMapa(mapa, PosInicialX, PosInicialY, "E");
     mostrarMapa(mapa);
     
     cout << endl;
