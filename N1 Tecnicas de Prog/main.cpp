@@ -15,8 +15,8 @@ int main(int argc, const char * argv[]) {
     Mapa mapa;
     Rato rato;
     
-    int PosInicialX = 0;
-    int PosInicialY = 0;
+    int PosInicialX = rand() % 4;
+    int PosInicialY = rand() % 4;
     
     rato.posX = PosInicialX;
     rato.posY = PosInicialY;
